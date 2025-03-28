@@ -71,6 +71,28 @@ function InternshipSection() {
       skills: ["Bookkeeping", "Financial Analysis", "Excel"],
       category: "Finance"
     },
+     {
+      id: 7,
+      title: "Accounting Internship",
+      company: "FinanceFirst",
+      address: "Cairo, Egypt",
+      color: "#1e40af",
+      type: "Hybrid",
+      duration: "6 months",
+      skills: ["Bookkeeping", "Financial Analysis", "Excel"],
+      category: "Finance"
+    },
+      {
+      id: 8,
+      title: "Accounting Internship",
+      company: "FinanceFirst",
+      address: "Cairo, Egypt",
+      color: "#1e40af",
+      type: "Hybrid",
+      duration: "6 months",
+      skills: ["Bookkeeping", "Financial Analysis", "Excel"],
+      category: "Finance"
+    },
   ];
 
   return (
@@ -85,7 +107,7 @@ function InternshipSection() {
           </a>
         </div>
         <div className="internship-grid">
-          {internships.map((internship) => (
+          {internships.slice(0, 6).map((internship) => (  // Use slice(0, 6)
             <a
               href={`/internship/${internship.id}`}
               key={internship.id}

@@ -8,6 +8,8 @@ function InternshipsPage() {
   const [sortBy, setSortBy] = useState('Most relevant');
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const internshipsPerPage = 10; // Adjust this number to configure the number of internships per page
 
   // Dummy data for internships
   const internships = [
@@ -55,6 +57,86 @@ function InternshipsPage() {
       postedDate: '2023-07-15',
       deadline: '2023-08-25',
     },
+    {
+      id: 5,
+      title: 'Graphic Design Internship',
+      organization: 'Creative Visions',
+      location: 'Nairobi, Kenya',
+      description: 'Create visually appealing graphics for our social media and marketing campaigns.',
+      tags: ['Design', 'Creative', 'Remote'],
+      postedDate: '2023-07-20',
+      deadline: '2023-08-30',
+    },
+    {
+      id: 6,
+      title: 'Web Development Internship',
+      organization: 'Code Wizards Inc',
+      location: 'Lagos, Nigeria',
+      description: 'Assist in the development of new features for our web application.',
+      tags: ['Development', 'Frontend', 'Backend'],
+      postedDate: '2023-07-25',
+      deadline: '2023-09-05',
+    },
+    {
+      id: 7,
+      title: 'Marketing Research Internship',
+      organization: 'Market Insights Ltd',
+      location: 'Accra, Ghana',
+      description: 'Conduct market research to identify trends and opportunities.',
+      tags: ['Marketing', 'Analysis', 'Research'],
+      postedDate: '2023-08-01',
+      deadline: '2023-09-10',
+    },
+    {
+      id: 8,
+      title: 'Data Science Internship',
+      organization: 'Analytics Pro',
+      location: 'Cape Town, South Africa',
+      description: 'Analyze large datasets to identify patterns and insights.',
+      tags: ['Data', 'Machine Learning', 'Python'],
+      postedDate: '2023-08-05',
+      deadline: '2023-09-15',
+    },
+    {
+      id: 9,
+      title: 'Human Resources Internship',
+      organization: 'People Solutions',
+      location: 'Cairo, Egypt',
+      description: 'Assist with recruitment, onboarding, and employee relations.',
+      tags: ['HR', 'Management', 'Communication'],
+      postedDate: '2023-08-10',
+      deadline: '2023-09-20',
+    },
+    {
+      id: 10,
+      title: 'Financial Analyst Internship',
+      organization: 'Money Matters Inc',
+      location: 'Johannesburg, South Africa',
+      description: 'Perform financial analysis and reporting for our clients.',
+      tags: ['Finance', 'Accounting', 'Analysis'],
+      postedDate: '2023-08-15',
+      deadline: '2023-09-25',
+    },
+    {
+      id: 11,
+      title: 'Project Management Internship',
+      organization: 'Efficient Projects',
+      location: 'Nairobi, Kenya',
+      description: 'Assist in planning, executing, and monitoring projects.',
+      tags: ['Management', 'Planning', 'Coordination'],
+      postedDate: '2023-08-20',
+      deadline: '2023-09-30',
+    },
+    {
+      id: 12,
+      title: 'Customer Service Internship',
+      organization: 'Client Care Solutions',
+      location: 'Lagos, Nigeria',
+      description: 'Provide excellent customer service to our clients.',
+      tags: ['Customer Service', 'Communication', 'Support'],
+      postedDate: '2023-08-25',
+      deadline: '2023-10-05',
+    },
   ];
 
   // Get all unique categories and locations for filters
@@ -88,6 +170,17 @@ function InternshipsPage() {
       return 0; // Most Relevant (no change in order)
     }
   });
+
+  // Pagination logic
+  const indexOfLastInternship = currentPage * internshipsPerPage;
+  const indexOfFirstInternship = indexOfLastInternship - internshipsPerPage;
+  const currentInternships = sortedInternships.slice(indexOfFirstInternship, indexOfLastInternship);
+
+  const totalPages = Math.ceil(sortedInternships.length / internshipsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   // Function to handle search input change
   const handleSearchChange = (event) => {
@@ -128,6 +221,12 @@ function InternshipsPage() {
   return (
     <div className="internships-page">
       <div className="internships-container">
+        <div className="back-to-home">
+          <Link to="/" className="back-link">
+            ← Back
+          </Link>
+        </div>
+
         <header className="page-header">
           <h1 className="page-title">Explore Opportunities</h1>
           <p className="page-subtitle">Find the perfect internship or volunteer opportunity to match your skills and interests</p>
@@ -239,7 +338,7 @@ function InternshipsPage() {
             {/* Internships List */}
             {sortedInternships.length > 0 ? (
               <div className="internships-grid">
-                {sortedInternships.map((internship) => (
+                {currentInternships.map((internship) => (
                   <Link to={`/internships/${internship.id}`} key={internship.id} className="internship-link">
                     <InternshipCard internship={internship} />
                   </Link>
@@ -255,6 +354,36 @@ function InternshipsPage() {
                 </button>
               </div>
             )}
+
+            {/* Pagination Component */}
+            <div className="pagination">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="page-btn prev-btn"
+              >
+                Prev
+              </button>
+              
+              {/* Generate page number buttons */}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  className={`page-btn ${currentPage === pageNumber ? 'active' : ''}`}
+                >
+                  {pageNumber}
+                </button>
+              ))}
+
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="page-btn next-btn"
+              >
+                Next
+              </button>
+            </div>
           </main>
         </div>
       </div>

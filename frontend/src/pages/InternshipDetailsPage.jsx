@@ -1,4 +1,4 @@
-"use client"
+import React from "react"
 import { useParams } from "react-router-dom"
 import "./InternshipDetailspage.css"
 
@@ -84,6 +84,10 @@ function InternshipDetailsPage() {
               <p>{internship.whenWhere}</p>
             </div>
           </section>
+
+               <a href="#" className="apply-button">
+                   Apply Now
+        </a>
         </div>
 
         {/* Sidebar */}
@@ -159,4 +163,3 @@ function InternshipDetailsPage() {
 }
 
 export default InternshipDetailsPage
-

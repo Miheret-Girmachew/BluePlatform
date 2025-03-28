@@ -21,7 +21,8 @@
   
   .back-button {
     display: inline-flex;
-    align-items: center;
+    text-align: left;
+    margin-left: -10px;
     gap: 8px;
     color: white;
     text-decoration: none;
@@ -31,7 +32,8 @@
     border-radius: 30px;
     transition: all 0.3s ease;
   }
-  
+
+ 
   .back-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateX(-5px);
@@ -444,11 +446,13 @@
   /* Contact Section */
   .about-contact {
     text-align: center;
+    padding: 30px 15px;
   }
   
+ 
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     max-width: 900px;
     margin: 0 auto;

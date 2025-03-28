@@ -8,6 +8,7 @@ import InternshipSection from './components/InternshipSection';
 import Footer from './components/Footer';
 import InternshipsPage from './pages/InternshipsPage'; // Import the InternshipsPage
 import InternshipDetailsPage from './pages/InternshipDetailsPage'; // Import the InternshipDetailsPage
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           } />
           <Route path="/internships" element={<InternshipsPage />} />
           <Route path="/internships/:id" element={<InternshipDetailsPage />} /> { /* New Route */}
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
         <Footer />
         <main>

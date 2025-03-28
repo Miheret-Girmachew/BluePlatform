@@ -97,7 +97,7 @@ function Header() {
                 </Link>
               </li>
               <li className="header-nav-item">
-                <Link to="/internship" className="header-nav-link">
+                <Link to="/internships" className="header-nav-link">
                   Browse Companies
                 </Link>
               </li>

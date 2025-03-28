@@ -67,7 +67,7 @@ function AboutUs() {
         <div className="about-container">
           <Link to="/" className="back-button">
             <ArrowLeft size={20} />
-            <span>Back to Home</span>
+            <span>Back</span>
           </Link>
           <h1 className="about-title">About Blue Platform</h1>
           <p className="about-subtitle">Connecting ambitious talent with meaningful opportunities across Africa</p>
@@ -269,27 +269,7 @@ function AboutUs() {
           )}
         </div>
 
-        <div className="about-faq">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-list">
-            {faqs.map((faq, index) => (
-              <div 
-                key={index} 
-                className={`faq-item ${expandedFaq === index ? 'expanded' : ''}`}
-                onClick={() => toggleFaq(index)}
-              >
-                <div className="faq-question">
-                  <h3>{faq.question}</h3>
-                  {expandedFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </div>
-                <div className="faq-answer">
-                  <p>{faq.answer}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
+        
         <div className="about-contact">
           <h2>Get in Touch</h2>
           <div className="contact-grid">
@@ -308,14 +288,6 @@ function AboutUs() {
               <h3>Call Us</h3>
               <p>+251 912 345 678</p>
               <p>Mon-Fri, 9am-5pm EAT</p>
-            </div>
-            <div className="contact-card">
-              <div className="contact-icon">
-                <Globe size={24} />
-              </div>
-              <h3>Visit Us</h3>
-              <p>Bole Road, Addis Ababa</p>
-              <p>Ethiopia</p>
             </div>
           </div>
         </div>
