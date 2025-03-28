@@ -56,28 +56,7 @@ function Footer() {
           </div>
         </div>
         
-        <div className="footer-links-group">
-          <div className="footer-about-section">
-            <h3 className="footer-section-title">About</h3>
-            <ul className="footer-list">
-              <li><a href="/">Companies</a></li>
-              <li><a href="/">Pricing</a></li>
-              <li><a href="/">Terms</a></li>
-              <li><a href="/">Advice</a></li>
-              <li><a href="/">Privacy Policy</a></li>
-            </ul>
-          </div>
-          
-          <div className="footer-resources-section">
-            <h3 className="footer-section-title">Resources</h3>
-            <ul className="footer-list">
-              <li><a href="/">Help Docs</a></li>
-              <li><a href="/">Guide</a></li>
-              <li><a href="/">Updates</a></li>
-              <li><a href="/">Contact Us</a></li>
-            </ul>
-          </div>
-        </div>
+     
         
         <div className="footer-newsletter-section">
           <h3 className="footer-section-title">Get internship notifications</h3>

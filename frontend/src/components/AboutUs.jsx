@@ -11,55 +11,7 @@ function AboutUs() {
     setExpandedFaq(expandedFaq === index ? null : index);
   };
 
-  const teamMembers = [
-    {
-      id: 1,
-      name: 'Sarah Johnson',
-      role: 'Founder & CEO',
-      image: '/placeholder.svg?height=200&width=200',
-      bio: 'Former HR Director with 10+ years experience connecting talent with opportunities.'
-    },
-    {
-      id: 2,
-      name: 'Michael Chen',
-      role: 'CTO',
-      image: '/placeholder.svg?height=200&width=200',
-      bio: 'Tech enthusiast with a passion for creating platforms that empower young professionals.'
-    },
-    {
-      id: 3,
-      name: 'Aisha Kamara',
-      role: 'Head of Partnerships',
-      image: '/placeholder.svg?height=200&width=200',
-      bio: 'Relationship builder focused on creating meaningful connections between interns and companies.'
-    },
-    {
-      id: 4,
-      name: 'David Okafor',
-      role: 'Lead Designer',
-      image: '/placeholder.svg?height=200&width=200',
-      bio: 'Creative mind behind our user experience and visual identity.'
-    }
-  ];
-
-  const faqs = [
-    {
-      question: 'How does Blue Platform work?',
-      answer: 'Blue Platform connects ambitious students and recent graduates with quality internship opportunities. Companies post their openings, and candidates can apply directly through our platform. We also provide resources to help you prepare for interviews and succeed in your internship.'
-    },
-    {
-      question: 'Is Blue Platform free to use?',
-      answer: 'Yes! Blue Platform is completely free for internship seekers. Companies may choose from our free basic listing or premium options for enhanced visibility and candidate matching.'
-    },
-    {
-      question: 'How do I apply for internships?',
-      answer: 'Simply create an account, complete your profile, and start browsing opportunities. When you find an internship that interests you, click "Apply" and follow the instructions. Some positions allow you to apply directly through our platform, while others may redirect you to the company\'s application system.'
-    },
-    {
-      question: 'Can I use Blue Platform if I\'m not in Africa?',
-      answer: 'While our primary focus is connecting talent with opportunities across Africa, we welcome users from around the world. We believe in fostering global connections and providing international experience to ambitious professionals.'
-    }
-  ];
+ 
 
   return (
     <div className="about-us-page">
