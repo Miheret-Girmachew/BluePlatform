@@ -10,35 +10,258 @@ function InternshipDetailsPage() {
   const internshipId = Number.parseInt(id)
   const [isApplicationModalOpen, setIsApplicationModalOpen] = useState(false)
 
-  const internships = [
+  const internships =[
     {
       id: 1,
       title: "Social Media Assistant",
-      organization: "Young Men Christians Association",
+      organization: "Ethiopian Youth Empowerment Association (EYEA)",
       location: "Addis Ababa, Ethiopia",
       description:
-        "As a Social Media Assistant, you will work closely with the social media manager or marketing team to execute social media strategies and campaigns. You will be responsible for assisting in the creation and scheduling of engaging content, monitoring social media channels, and interacting with followers.\n\nYour primary goal will be to enhance brand visibility, foster positive relationships with the audience, and drive engagement and conversions",
+        "Support EYEA’s digital presence by managing social media platforms (Facebook, Telegram, TikTok) to promote youth programs. Content will focus on Amharic/English engagement for local communities.",
       responsibilities: [
-        "Community engagement to ensure that is supported and actively represented online",
-        "Focus on social media content development and publication",
-        "Marketing and strategy support",
-        "Stay on top of trends on social media platforms, and suggest content ideas to the team",
-        "Engage with online communities",
+        "Create & schedule posts (events, success stories, campaigns).",
+        "Monitor comments/messages and engage with followers.",
+        "Track analytics and suggest improvements.",
+        "Collaborate with the marketing team on campaigns.",
       ],
       idealCandidate: [
-        "Young(18-24 year old) Female social media manager",
-        "Passionate & Reliable: Genuine interest in our mission and a strong desire to make a positive impact, responsible, and committed to fulfilling volunteer commitments.",
-        "Adaptable, Team Player & Strong Communication Skills: Able to work effectively in diverse teams; and contributes positively.Flexible and open to embracing new challenges and shifting priorities; Clear verbal and written communication, active listening, and constructive feedback.",
-        "Respectful: Embraces diversity, inclusive, and treats others with respect. Abides by all our rules and regulations.",
+        "Aged 18-25, fluent in Amharic & basic English.",
+        "Familiar with Facebook, Instagram, and TikTok trends in Ethiopia.",
+        "Creative, punctual, and passionate about youth development.",
       ],
-      whenWhere: "The onboarding event for this event will take place on Jan 18th, 2023 in AAU Auditorium",
+      whenWhere: "Orientation: Jan 18, 2024 @ EYEA Office, Kirkos Sub-City.",
       postedOn: "Jul 1, 2023",
-      deadline: "Jul 31, 2011",
+      deadline: "Jul 31, 2023",
       startDate: "Aug 02, 2023",
       endDate: "Sep 02, 2023",
-      categories: ["Marketing", "Design"],
-      requiredSkills: ["Social Media Marketing", "English", "Copywriting"],
+      categories: ["Marketing", "Community"],
+      requiredSkills: ["Social Media Management", "Content Creation"],
     },
+    {
+      id: 2,
+      title: "Community Health Volunteer",
+      organization: "Ethiopian Red Cross Society",
+      location: "Hawassa, Sidama Region",
+      description:
+        "Assist in public health campaigns (malaria prevention, hygiene) in rural communities. Training provided.",
+      responsibilities: [
+        "Conduct door-to-door awareness sessions.",
+        "Distribute health kits and record data.",
+        "Attend weekly team meetings.",
+      ],
+      idealCandidate: [
+        "Resident of Hawassa or nearby (preferred).",
+        "Compassionate, good communication skills in Sidama/Amharic.",
+        "Interest in healthcare or nursing.",
+      ],
+      whenWhere: "Training: Jan 20, 2024 @ Red Cross Hawassa Branch.",
+      postedOn: "Jul 5, 2023",
+      deadline: "Aug 15, 2023",
+      startDate: "Aug 20, 2023",
+      endDate: "Nov 20, 2023",
+      categories: ["Health", "Volunteer"],
+      requiredSkills: ["Community Outreach", "Basic First Aid"],
+    },
+    {
+      id: 3,
+      title: "Agriculture Field Assistant",
+      organization: "Agricultural Transformation Agency (ATA)",
+      location: "Jimma, Oromia",
+      description:
+        "Support smallholder farmers in adopting sustainable practices (composting, crop rotation).",
+      responsibilities: [
+        "Demonstrate techniques to local farmers.",
+        "Collect field data on crop yields.",
+        "Assist in training sessions.",
+      ],
+      idealCandidate: [
+        "Background in agriculture or environmental studies.",
+        "Able to communicate in Oromiffa.",
+        "Willing to travel to rural sites.",
+      ],
+      whenWhere: "Training: Jan 22, 2024 @ ATA Jimma Office.",
+      postedOn: "Jul 10, 2023",
+      deadline: "Aug 20, 2023",
+      startDate: "Sep 01, 2023",
+      endDate: "Dec 01, 2023",
+      categories: ["Agriculture", "Sustainability"],
+      requiredSkills: ["Farming Knowledge", "Data Collection"],
+    },
+    {
+      id: 4,
+      title: "Tourism Guide Trainee",
+      organization: "Ethiopian Heritage Trust",
+      location: "Lalibela, Amhara Region",
+      description:
+        "Train to become a certified guide for Lalibela’s rock-hewn churches. Learn history, customer service, and safety protocols.",
+      responsibilities: [
+        "Shadow experienced guides.",
+        "Engage with tourists (English required).",
+        "Maintain site cleanliness.",
+      ],
+      idealCandidate: [
+        "Interest in Ethiopian history/culture.",
+        "Fluent in English & Amharic.",
+        "Friendly and patient demeanor.",
+      ],
+      whenWhere: "Orientation: Jan 25, 2024 @ Lalibela Visitor Center.",
+      postedOn: "Jul 15, 2023",
+      deadline: "Aug 25, 2023",
+      startDate: "Sep 05, 2023",
+      endDate: "Mar 05, 2024",
+      categories: ["Tourism", "Hospitality"],
+      requiredSkills: ["Public Speaking", "Cultural Knowledge"],
+    },
+    {
+      id: 5,
+      title: "Women’s Empowerment Intern",
+      organization: "Tena Kebena Women’s Association",
+      location: "Addis Ababa",
+      description:
+        "Support vocational training programs (weaving, entrepreneurship) for low-income women.",
+      responsibilities: [
+        "Coordinate workshops and record attendance.",
+        "Help with fundraising campaigns.",
+        "Mentor participants.",
+      ],
+      idealCandidate: [
+        "Female, aged 20-30 (preferred).",
+        "Passionate about gender equality.",
+        "Basic Microsoft Office skills.",
+      ],
+      whenWhere: "Kickoff: Jan 28, 2024 @ TKWA HQ, Kazanchis.",
+      postedOn: "Jul 20, 2023",
+      deadline: "Aug 30, 2023",
+      startDate: "Sep 10, 2023",
+      endDate: "Dec 10, 2023",
+      categories: ["Gender", "Education"],
+      requiredSkills: ["Event Planning", "Mentoring"],
+    },
+    {
+      id: 6,
+      title: "IT Support Intern",
+      organization: "iCog Labs Ethiopia",
+      location: "Addis Ababa",
+      description:
+        "Assist in maintaining computer systems, troubleshooting, and training staff on software tools.",
+      responsibilities: [
+        "Set up hardware/software for new employees.",
+        "Resolve basic tech issues.",
+        "Document IT processes.",
+      ],
+      idealCandidate: [
+        "Computer Science/IT student or graduate.",
+        "Familiar with Windows/Linux.",
+        "Problem-solving skills.",
+      ],
+      whenWhere: "Orientation: Feb 01, 2024 @ iCog Labs, Bole.",
+      postedOn: "Jul 25, 2023",
+      deadline: "Sep 05, 2023",
+      startDate: "Sep 15, 2023",
+      endDate: "Dec 15, 2023",
+      categories: ["Technology", "IT"],
+      requiredSkills: ["Hardware Troubleshooting", "Python"],
+    },
+    {
+      id: 7,
+      title: "Environmental Conservation Volunteer",
+      organization: "Green Ethiopia Initiative",
+      location: "Arba Minch, SNNPR",
+      description:
+        "Plant trees, educate communities on waste management, and monitor green projects near Lake Chamo.",
+      responsibilities: [
+        "Participate in tree-planting events.",
+        "Conduct eco-awareness sessions in schools.",
+        "Collect environmental data.",
+      ],
+      idealCandidate: [
+        "Physically fit for outdoor work.",
+        "Interest in ecology/sustainability.",
+        "Local language skills (Gamo, Wolaytta).",
+      ],
+      whenWhere: "Start: Feb 05, 2024 @ Green Ethiopia Office, Arba Minch.",
+      postedOn: "Aug 01, 2023",
+      deadline: "Sep 10, 2023",
+      startDate: "Sep 20, 2023",
+      endDate: "Mar 20, 2024",
+      categories: ["Environment", "Outdoor"],
+      requiredSkills: ["Teamwork", "Community Mobilization"],
+    },
+    {
+      id: 8,
+      title: "Creative Writing Intern",
+      organization: "Habesha Stories Collective",
+      location: "Remote (Ethiopia-based)",
+      description:
+        "Write articles/blog posts about Ethiopian culture, history, and innovation for digital platforms.",
+      responsibilities: [
+        "Research and draft 2 articles/week.",
+        "Edit peer submissions.",
+        "Attend virtual brainstorming sessions.",
+      ],
+      idealCandidate: [
+        "Strong writing skills in English/Amharic.",
+        "Knowledge of Ethiopian traditions.",
+        "Self-motivated with deadlines.",
+      ],
+      whenWhere: "Virtual onboarding: Feb 10, 2024 (Zoom).",
+      postedOn: "Aug 05, 2023",
+      deadline: "Sep 15, 2023",
+      startDate: "Sep 25, 2023",
+      endDate: "Dec 25, 2023",
+      categories: ["Writing", "Remote"],
+      requiredSkills: ["Creative Writing", "Research"],
+    },
+    {
+      id: 9,
+      title: "Microfinance Research Assistant",
+      organization: "Dashen Bank Community Program",
+      location: "Mekelle, Tigray",
+      description:
+        "Interview women entrepreneurs to assess the impact of microloans on small businesses.",
+      responsibilities: [
+        "Conduct surveys in local markets.",
+        "Enter data into Excel.",
+        "Write summary reports.",
+      ],
+      idealCandidate: [
+        "Economics/Business student.",
+        "Fluent in Tigrinya.",
+        "Comfortable with fieldwork.",
+      ],
+      whenWhere: "Training: Feb 15, 2024 @ Dashen Bank Mekelle Branch.",
+      postedOn: "Aug 10, 2023",
+      deadline: "Sep 20, 2023",
+      startDate: "Oct 01, 2023",
+      endDate: "Jan 01, 2024",
+      categories: ["Finance", "Research"],
+      requiredSkills: ["Data Collection", "Excel"],
+    },
+    {
+      id: 10,
+      title: "Disability Rights Advocate",
+      organization: "Ethiopian Center for Disability & Development (ECDD)",
+      location: "Addis Ababa",
+      description:
+        "Promote inclusivity by organizing workshops and advocating for accessibility in public spaces.",
+      responsibilities: [
+        "Assist in event planning.",
+        "Engage with policymakers.",
+        "Create awareness materials.",
+      ],
+      idealCandidate: [
+        "Passion for disability rights.",
+        "Experience in advocacy (preferred).",
+        "Adaptive communication skills.",
+      ],
+      whenWhere: "Orientation: Feb 20, 2024 @ ECDD Office, Addis.",
+      postedOn: "Aug 15, 2023",
+      deadline: "Sep 25, 2023",
+      startDate: "Oct 05, 2023",
+      endDate: "Apr 05, 2024",
+      categories: ["Advocacy", "Nonprofit"],
+      requiredSkills: ["Public Speaking", "Project Coordination"],
+    }
   ]
 
   const internship = internships.find((intern) => intern.id === internshipId)
@@ -76,7 +299,7 @@ function InternshipDetailsPage() {
   return (
     <div className="internship-details-page">
       <div className="back-button-container">
-        <Link to="/internships" className="back-button">
+        <Link to="/internships" className="back-button-c">
           <ArrowLeft size={18} />
           <span>Back to Internships</span>
         </Link>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './AboutUs.css';
 import { ArrowLeft, Users, Award, Calendar, Target, ChevronDown, ChevronUp, Globe, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TestimonialSection from './TestimonialSection';
 
 function AboutUs() {
   const [activeTab, setActiveTab] = useState('mission');
@@ -43,19 +44,20 @@ function AboutUs() {
             <Calendar size={20} />
             Our Story
           </button>
-          <button 
-            className={`tab-button ${activeTab === 'team' ? 'active' : ''}`}
-            onClick={() => setActiveTab('team')}
-          >
-            <Users size={20} />
-            Our Team
-          </button>
+          
           <button 
             className={`tab-button ${activeTab === 'values' ? 'active' : ''}`}
             onClick={() => setActiveTab('values')}
           >
             <Award size={20} />
             Our Values
+          </button>
+          <button 
+            className={`tab-button ${activeTab === 'testimonials' ? 'active' : ''}`}
+            onClick={() => setActiveTab('testimonials')}
+          >
+            <Award size={20} />
+            Testminoals
           </button>
         </div>
 
@@ -69,10 +71,10 @@ function AboutUs() {
                     "To bridge the gap between education and employment by connecting ambitious young talent with quality internship opportunities across Africa."
                   </p>
                   <p>
-                    At Blue Platform, we believe that meaningful internships are the cornerstone of successful careers. We're dedicated to democratizing access to opportunities, ensuring that talented individuals from all backgrounds can gain the experience they need to thrive.
+                  Welcome to Blue Platform, an innovative internship matching web application designed to connect students with companies seeking fresh talent. Our mission is to provide students with hands-on experience in their desired fields, enabling them to develop essential skills and bridge the gap between education and employment.
                   </p>
                   <p>
-                    By creating a seamless connection between companies and interns, we're building a future where African talent can access quality opportunities and where businesses can discover the next generation of leaders.
+                  By intelligently matching students with organizations that align with their career goals, we not only empower the next generation of professionals but also help companies save time and resources while effectively doubling their manpower. At Blue Platform, we are dedicated to fostering valuable connections that enhance learning and drive success for both students and businesses alike.
                   </p>
                 </div>
                 <div className="mission-stats">
@@ -104,33 +106,33 @@ function AboutUs() {
                 <div className="timeline-item">
                   <div className="timeline-marker"></div>
                   <div className="timeline-content">
-                    <h3>2020</h3>
+                    <h3>2025</h3>
                     <h4>The Beginning</h4>
-                    <p>Blue Platform was born out of a simple observation: despite abundant talent across Africa, many graduates struggled to find quality internships to launch their careers. Our founder, Sarah Johnson, experienced this firsthand and decided to create a solution.</p>
+                    {/* <p>Blue Platform was born out of a simple observation: despite abundant talent across Africa, many graduates struggled to find quality internships to launch their careers. Our founder, Sarah Johnson, experienced this firsthand and decided to create a solution.</p> */}
                   </div>
                 </div>
                 <div className="timeline-item">
                   <div className="timeline-marker"></div>
                   <div className="timeline-content">
-                    <h3>2021</h3>
+                    <h3>2025</h3>
                     <h4>First Partnerships</h4>
-                    <p>We launched with 50 partner companies in Ethiopia, connecting over 200 interns with meaningful opportunities in their first year. The feedback was overwhelmingly positive, confirming the need for our platform.</p>
+                    {/* <p>We launched with 50 partner companies in Ethiopia, connecting over 200 interns with meaningful opportunities in their first year. The feedback was overwhelmingly positive, confirming the need for our platform.</p> */}
                   </div>
                 </div>
                 <div className="timeline-item">
                   <div className="timeline-marker"></div>
                   <div className="timeline-content">
-                    <h3>2022</h3>
+                    <h3>2025</h3>
                     <h4>Expansion Across Africa</h4>
-                    <p>Building on our initial success, we expanded to Kenya, Nigeria, and Ghana, quadrupling our user base and establishing partnerships with multinational corporations seeking local talent.</p>
+                    {/* <p>Building on our initial success, we expanded to Kenya, Nigeria, and Ghana, quadrupling our user base and establishing partnerships with multinational corporations seeking local talent.</p> */}
                   </div>
                 </div>
                 <div className="timeline-item">
                   <div className="timeline-marker"></div>
                   <div className="timeline-content">
-                    <h3>2023</h3>
+                    <h3>2025</h3>
                     <h4>Platform Evolution</h4>
-                    <p>We launched our redesigned platform with enhanced features for skills matching, remote internship opportunities, and resources to help interns succeed in their placements.</p>
+                    {/* <p>We launched our redesigned platform with enhanced features for skills matching, remote internship opportunities, and resources to help interns succeed in their placements.</p> */}
                   </div>
                 </div>
                 <div className="timeline-item">
@@ -138,7 +140,7 @@ function AboutUs() {
                   <div className="timeline-content">
                     <h3>Today</h3>
                     <h4>Growing Impact</h4>
-                    <p>Blue Platform now operates in 15+ African countries, with thousands of successful placements and a growing community of alumni who have launched successful careers through our platform.</p>
+                    {/* <p>Blue Platform now operates in 15+ African countries, with thousands of successful placements and a growing community of alumni who have launched successful careers through our platform.</p> */}
                   </div>
                 </div>
               </div>
@@ -161,14 +163,15 @@ function AboutUs() {
                   </div>
                 ))}
               </div>
-              <div className="join-team">
-                <h3>Join Our Team</h3>
-                <p>Passionate about our mission? We're always looking for talented individuals to join our team.</p>
-                <a href="/careers" className="team-cta">View Open Positions</a>
-              </div>
+             
             </div>
           )}
 
+ {activeTab === 'testimonials' && (
+            <div className="team-section">
+    <TestimonialSection />
+  </div>
+)}
           {activeTab === 'values' && (
             <div className="values-section">
               <h2>Our Core Values</h2>
@@ -230,15 +233,14 @@ function AboutUs() {
                 <Mail size={24} />
               </div>
               <h3>Email Us</h3>
-              <p>info@blueplatform.com</p>
-              <p>support@blueplatform.com</p>
+              <p>tihitnatesfaye5@gmail.com</p>
             </div>
             <div className="contact-card">
               <div className="contact-icon">
                 <Phone size={24} />
               </div>
               <h3>Call Us</h3>
-              <p>+251 912 345 678</p>
+              <p>+251 98 810 3240</p>
               <p>Mon-Fri, 9am-5pm EAT</p>
             </div>
           </div>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './InternshipsPage.css';
-import InternshipCard from '../components/InternshipCard';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./InternshipsPage.css";
+import InternshipCard from "../components/InternshipCard";
 
 function InternshipsPage() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState('Most relevant');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("Most relevant");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,127 +15,113 @@ function InternshipsPage() {
   const internships = [
     {
       id: 1,
-      title: 'Social Media Assistant',
-      organization: 'Young Men Christians Association',
-      location: 'Addis Ababa, Ethiopia',
+      title: "Social Media Assistant",
+      organization: "Ethiopian Agricultural Transformation Agency (ATA)",
+      location: "Addis Ababa, Ethiopia",
       description:
-        'As a Social Media Assistant, you will work closely with the social media manager or marketing team to execute social media strategies and campaigns. You will be responsible for assisting in the creation and scheduling of engaging content, monitoring social media channels, and interacting with followers.',
-      tags: ['In Person', 'Education', 'IT'],
-      postedDate: '2023-07-01',
-      deadline: '2023-07-31',
+        "Assist in managing social media platforms, creating content in Amharic/English, and engaging with local communities to promote youth programs.",
+      tags: ["In Person", "Education", "IT"],
+      postedDate: "2023-07-01",
+      deadline: "2023-07-31",
     },
     {
       id: 2,
-      title: 'Social Media Assistant',
-      organization: 'Young Men Christians Association',
-      location: 'Addis Ababa, Ethiopia',
+      title: "Community Volunteer Teacher",
+      organization: "Addis Ababa Education Bureau",
+      location: "Addis Ababa, Ethiopia",
       description:
-        'As a Social Media Assistant, you will work closely with the social media manager or marketing team to execute social media strategies and campaigns. You will be responsible for assisting in the creation and scheduling of engaging content, monitoring social media channels, and interacting with followers.',
-      tags: ['In Person', 'Education', 'IT'],
-      postedDate: '2023-07-05',
-      deadline: '2023-08-15',
+        "Teach basic literacy and numeracy to underserved children in community centers. Fluency in Amharic or Oromo required.",
+      tags: ["In Person", "Volunteer", "Education"],
+      postedDate: "2023-07-05",
+      deadline: "2023-08-15",
     },
     {
       id: 3,
-      title: 'Volunteer Teacher',
-      organization: 'School Under The Tree',
-      location: 'Addis Ababa, Ethiopia',
+      title: "Agriculture Extension Intern",
+      organization: "Ethiopian Agricultural Transformation Agency (ATA)",
+      location: "Oromia Region, Ethiopia",
       description:
-        'As a Social Media Assistant, you will work closely with the social media manager or marketing team to execute social media strategies and campaigns. You will be responsible for assisting in the creation and scheduling of engaging content, monitoring social media channels, and interacting with followers.',
-      tags: ['In Person', 'Education', 'IT'],
-      postedDate: '2023-07-10',
-      deadline: '2023-08-20',
+        "Support smallholder farmers with modern farming techniques and record-keeping. Fieldwork involved.",
+      tags: ["In Person", "Agriculture", "Rural"],
+      postedDate: "2023-07-10",
+      deadline: "2023-08-20",
     },
     {
       id: 4,
-      title: 'Social Media Assistant',
-      organization: 'The Africa in me',
-      location: 'Addis Ababa, Ethiopia',
+      title: "Public Health Intern",
+      organization: "Ethiopian Red Cross Society",
+      location: "Dire Dawa, Ethiopia",
       description:
-        'As a Social Media Assistant, you will work closely with the social media manager or marketing team to execute social media strategies and campaigns. You will be responsible for assisting in the creation and scheduling of engaging content, monitoring social media channels, and interacting with followers.',
-      tags: ['In Person', 'Education', 'IT'],
-      postedDate: '2023-07-15',
-      deadline: '2023-08-25',
+        "Assist in health awareness campaigns (HIV, malaria) and community outreach programs.",
+      tags: ["In Person", "Health", "Community"],
+      postedDate: "2023-07-15",
+      deadline: "2023-08-25",
     },
     {
       id: 5,
-      title: 'Graphic Design Internship',
-      organization: 'Creative Visions',
-      location: 'Nairobi, Kenya',
-      description: 'Create visually appealing graphics for our social media and marketing campaigns.',
-      tags: ['Design', 'Creative', 'Remote'],
-      postedDate: '2023-07-20',
-      deadline: '2023-08-30',
+      title: "Graphic Design Intern",
+      organization: "Qene Technologies",
+      location: "Addis Ababa, Ethiopia",
+      description:
+        "Design visuals for Ethiopian startups, including branding materials in local languages.",
+      tags: ["Hybrid", "Design", "Creative"],
+      postedDate: "2023-07-20",
+      deadline: "2023-08-30",
     },
     {
       id: 6,
-      title: 'Web Development Internship',
-      organization: 'Code Wizards Inc',
-      location: 'Lagos, Nigeria',
-      description: 'Assist in the development of new features for our web application.',
-      tags: ['Development', 'Frontend', 'Backend'],
-      postedDate: '2023-07-25',
-      deadline: '2023-09-05',
+      title: "Tourism Guide Trainee",
+      organization: "Ethiopian Heritage Trust",
+      location: "Lalibela, Ethiopia",
+      description:
+        "Receive training to guide tourists at UNESCO World Heritage sites. Knowledge of Ethiopian history preferred.",
+      tags: ["In Person", "Tourism", "Hospitality"],
+      postedDate: "2023-07-25",
+      deadline: "2023-09-05",
     },
     {
       id: 7,
-      title: 'Marketing Research Internship',
-      organization: 'Market Insights Ltd',
-      location: 'Accra, Ghana',
-      description: 'Conduct market research to identify trends and opportunities.',
-      tags: ['Marketing', 'Analysis', 'Research'],
-      postedDate: '2023-08-01',
-      deadline: '2023-09-10',
+      title: "Renewable Energy Intern",
+      organization: "Ethio Green Power Initiative",
+      location: "Bahir Dar, Ethiopia",
+      description:
+        "Support solar/wind energy projects in rural communities. Engineering students encouraged.",
+      tags: ["In Person", "Engineering", "Sustainability"],
+      postedDate: "2023-08-01",
+      deadline: "2023-09-10",
     },
     {
       id: 8,
-      title: 'Data Science Internship',
-      organization: 'Analytics Pro',
-      location: 'Cape Town, South Africa',
-      description: 'Analyze large datasets to identify patterns and insights.',
-      tags: ['Data', 'Machine Learning', 'Python'],
-      postedDate: '2023-08-05',
-      deadline: '2023-09-15',
+      title: "Microfinance Research Assistant",
+      organization: "Dashen Bank Community Program",
+      location: "Hawassa, Ethiopia",
+      description:
+        "Collect data on microfinance impacts for women-led small businesses in the Sidama region.",
+      tags: ["Research", "Finance", "Fieldwork"],
+      postedDate: "2023-08-05",
+      deadline: "2023-09-15",
     },
     {
       id: 9,
-      title: 'Human Resources Internship',
-      organization: 'People Solutions',
-      location: 'Cairo, Egypt',
-      description: 'Assist with recruitment, onboarding, and employee relations.',
-      tags: ['HR', 'Management', 'Communication'],
-      postedDate: '2023-08-10',
-      deadline: '2023-09-20',
+      title: "Cultural Documentation Volunteer",
+      organization: "Ethiopian Folklore Archives",
+      location: "Gondar, Ethiopia",
+      description:
+        "Record oral histories and traditions from local communities. Amharic translation skills needed.",
+      tags: ["Volunteer", "Culture", "Language"],
+      postedDate: "2023-08-10",
+      deadline: "2023-09-20",
     },
     {
       id: 10,
-      title: 'Financial Analyst Internship',
-      organization: 'Money Matters Inc',
-      location: 'Johannesburg, South Africa',
-      description: 'Perform financial analysis and reporting for our clients.',
-      tags: ['Finance', 'Accounting', 'Analysis'],
-      postedDate: '2023-08-15',
-      deadline: '2023-09-25',
-    },
-    {
-      id: 11,
-      title: 'Project Management Internship',
-      organization: 'Efficient Projects',
-      location: 'Nairobi, Kenya',
-      description: 'Assist in planning, executing, and monitoring projects.',
-      tags: ['Management', 'Planning', 'Coordination'],
-      postedDate: '2023-08-20',
-      deadline: '2023-09-30',
-    },
-    {
-      id: 12,
-      title: 'Customer Service Internship',
-      organization: 'Client Care Solutions',
-      location: 'Lagos, Nigeria',
-      description: 'Provide excellent customer service to our clients.',
-      tags: ['Customer Service', 'Communication', 'Support'],
-      postedDate: '2023-08-25',
-      deadline: '2023-10-05',
+      title: "Urban Planning Intern",
+      organization: "Addis Ababa City Administration",
+      location: "Addis Ababa, Ethiopia",
+      description:
+        "Assist in mapping and data collection for city infrastructure projects.",
+      tags: ["In Person", "Engineering", "Government"],
+      postedDate: "2023-08-15",
+      deadline: "2023-09-25",
     },
   ];
 
@@ -145,16 +131,16 @@ function InternshipsPage() {
 
   // Filter internships based on search term and selected filters
   const filteredInternships = internships.filter((internship) => {
-    const matchesSearch = internship.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          internship.organization.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          internship.description.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesCategories = selectedCategories.length === 0 || 
-                             internship.tags.some(tag => selectedCategories.includes(tag));
-    
-    const matchesLocations = selectedLocations.length === 0 || 
-                            selectedLocations.includes(internship.location);
-    
+    const matchesSearch = internship.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      internship.organization.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      internship.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesCategories = selectedCategories.length === 0 ||
+      internship.tags.some(tag => selectedCategories.includes(tag));
+
+    const matchesLocations = selectedLocations.length === 0 ||
+      selectedLocations.includes(internship.location);
+
     return matchesSearch && matchesCategories && matchesLocations;
   });
 
@@ -194,18 +180,18 @@ function InternshipsPage() {
 
   // Function to handle category filter change
   const handleCategoryChange = (category) => {
-    setSelectedCategories(prev => 
-      prev.includes(category) 
-        ? prev.filter(c => c !== category) 
+    setSelectedCategories(prev =>
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
         : [...prev, category]
     );
   };
 
   // Function to handle location filter change
   const handleLocationChange = (location) => {
-    setSelectedLocations(prev => 
-      prev.includes(location) 
-        ? prev.filter(l => l !== location) 
+    setSelectedLocations(prev =>
+      prev.includes(location)
+        ? prev.filter(l => l !== location)
         : [...prev, location]
     );
   };
@@ -364,7 +350,7 @@ function InternshipsPage() {
               >
                 Prev
               </button>
-              
+
               {/* Generate page number buttons */}
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
                 <button

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Hero.css'; // Import the CSS file
-import hero from '../assets/hero.png'; 
+import hero from '../assets/inten2.jpg'; 
 
 
 function Hero() {

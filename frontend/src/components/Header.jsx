@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import "./Header.css"
 import SignupModal from "./SignupModal"
 import LoginModal from "./LoginModal"
-import logo from "../assets/logo.png"
+import blue from "../assets/blue.jpg"
 
 
 function Header() {
@@ -69,7 +69,7 @@ function Header() {
       <div className="header-container">
         <div className="header-logo">
           <Link to="/" className="header-logo-link">
-            <img src={logo || "/placeholder.svg"} alt="Blue Platform Logo" className="logo-image" />
+            <img src={blue || "/placeholder.svg"} alt="Blue Platform Logo" className="logo-image" />
           </Link>
         </div>
 
@@ -104,11 +104,6 @@ function Header() {
               <li className="header-nav-item">
                 <Link to="/about" className="header-nav-link">
                   About Us
-                </Link>
-              </li>
-              <li className="header-nav-item mobile-only">
-                <Link to="/contact" className="header-nav-link">
-                  Contact
                 </Link>
               </li>
             </ul>
