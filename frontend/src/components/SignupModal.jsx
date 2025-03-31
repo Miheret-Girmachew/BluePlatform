@@ -61,24 +61,24 @@ function SignupModal({ isOpen, onClose }) {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+  
     // Reset errors
     setNameError('');
     setEmailError('');
     setPasswordError('');
     setConfirmPasswordError('');
     setTermsError('');
-    
+  
     // Validate inputs
     let isValid = true;
-    
+  
     if (!name.trim()) {
       setNameError('Name is required');
       isValid = false;
     }
-    
+  
     if (!email) {
       setEmailError('Email is required');
       isValid = false;
@@ -86,7 +86,7 @@ function SignupModal({ isOpen, onClose }) {
       setEmailError('Please enter a valid email');
       isValid = false;
     }
-    
+  
     if (!password) {
       setPasswordError('Password is required');
       isValid = false;
@@ -94,7 +94,7 @@ function SignupModal({ isOpen, onClose }) {
       setPasswordError('Password must be at least 8 characters');
       isValid = false;
     }
-    
+  
     if (!confirmPassword) {
       setConfirmPasswordError('Please confirm your password');
       isValid = false;
@@ -102,22 +102,45 @@ function SignupModal({ isOpen, onClose }) {
       setConfirmPasswordError('Passwords do not match');
       isValid = false;
     }
-    
+  
     if (!termsAccepted) {
       setTermsError('You must accept the terms and conditions');
       isValid = false;
     }
-    
+  
     if (isValid) {
       setIsLoading(true);
-      
-      // Simulate API call
-      setTimeout(() => {
+  
+      try {
+        const response = await fetch('http://localhost:3000/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            fullName: name,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword,
+          }),
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          console.log('Signup successful:', data);
+          alert('Signup successful!');
+          onClose(); // Close the modal after successful signup
+        } else {
+          console.error('Signup failed:', data);
+          alert(data.message || 'Signup failed. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error during signup:', error);
+        alert('An error occurred. Please try again later.');
+      } finally {
         setIsLoading(false);
-        // Here you would typically handle the signup logic
-        console.log('Signup submitted:', { name, email, password });
-        // onClose(); // Uncomment to close modal after successful signup
-      }, 1500);
+      }
     }
   };
 
