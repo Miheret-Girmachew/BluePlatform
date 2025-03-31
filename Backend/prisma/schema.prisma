@@ -1,0 +1,194 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model - represents students and graduates only
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  password          String
+  fullName          String
+  isStudent         Boolean   @default(false)
+  isGraduate        Boolean   @default(false)
+  university        String?
+  degree            String?
+  fieldOfStudy      String?
+  currentYear       Int?
+  expectedGraduation DateTime?
+  skills            String[]
+  preferredJobTypes JobType[]
+  preferredIndustries String[]
+  preferredLocations String[]
+  minSalary         Float?
+  remotePreference  RemotePreference?
+  resume            String?
+  linkedInProfile   String?
+  githubProfile     String?
+  portfolioWebsite  String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  applications      Application[]
+  matches           Match[]
+  notifications     Notification[]
+}
+
+// Company model - for companies posting opportunities
+model Company {
+  id                String              @id @default(uuid())
+  email             String              @unique
+  password          String
+  name              String
+  logo              String?             // URL to company logo
+  website           String?
+  industry          String
+  size              CompanySize
+  foundedYear       Int?
+  description       String?
+  location          String
+  isVerified        Boolean             @default(false)
+  verificationToken String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  refreshToken      String?
+  jobs              Job[]
+}
+
+// Company size enum
+enum CompanySize {
+  STARTUP
+  SMALL
+  MEDIUM
+  LARGE
+  ENTERPRISE
+}
+
+// Job model - for both jobs and internships
+model Job {
+  id                String              @id @default(uuid())
+  companyId         String
+  company           Company             @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  title             String
+  description       String
+  requirements      String[]
+  responsibilities  String[]
+  location          String
+  salary            String?             // Can be salary range or stipend
+  jobType           JobType
+  experienceLevel   ExperienceLevel
+  isInternship      Boolean             @default(false)
+  internshipDuration String?            // e.g., "3 months", "6 months", "1 year"
+  targetAudience    TargetAudience[]    // Who can apply
+  remotePreference  RemotePreference?   // Remote work preference
+  postedAt          DateTime            @default(now())
+  deadline          DateTime
+  isActive          Boolean             @default(true)
+  applications      Application[]
+  matches           Match[]
+}
+
+// Target audience enum
+enum TargetAudience {
+  STUDENTS
+  GRADUATES
+  BOTH
+}
+
+// Job type enum
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  INTERNSHIP
+  CONTRACT
+  FREELANCE
+}
+
+// Experience level enum
+enum ExperienceLevel {
+  ENTRY
+  JUNIOR
+  MID
+  SENIOR
+  LEAD
+}
+
+// Application model - when a user applies to a job/internship
+model Application {
+  id                String              @id @default(uuid())
+  jobId             String
+  job               Job                 @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  applicantId       String
+  applicant         User                @relation(fields: [applicantId], references: [id], onDelete: Cascade)
+  coverLetter       String?
+  resumeUrl         String?
+  status            ApplicationStatus   @default(PENDING)
+  appliedAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  notes             String?
+}
+
+// Application status enum
+enum ApplicationStatus {
+  PENDING
+  REVIEWED
+  INTERVIEW
+  REJECTED
+  ACCEPTED
+}
+
+// Match model - for algorithm-generated matches between users and jobs
+model Match {
+  id                String              @id @default(uuid())
+  userId            String
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  jobId             String
+  job               Job                 @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  score             Float               // Match score (0-1)
+  matchFactors      Json                // Store factors that contributed to the match
+  createdAt         DateTime            @default(now())
+  viewed            Boolean             @default(false)
+  saved             Boolean             @default(false)
+  notificationSent  Boolean             @default(false)
+}
+
+// Remote work preference enum
+enum RemotePreference {
+  ON_SITE
+  REMOTE
+  HYBRID
+  FLEXIBLE
+}
+
+// Notification model - for in-app notifications
+model Notification {
+  id                String              @id @default(uuid())
+  userId            String
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title             String
+  message           String
+  type              NotificationType
+  isRead            Boolean             @default(false)
+  createdAt         DateTime            @default(now())
+  link              String?             // Optional link to related resource
+}
+
+// Notification type enum
+enum NotificationType {
+  APPLICATION_UPDATE
+  NEW_JOB
+  NEW_MATCH
+  INTERVIEW
+  MESSAGE
+  SYSTEM
+}
+
