@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './SignupModal.css';
+import LoginModal from "./LoginModal"
 
 function SignupModal({ isOpen, onClose }) {
   const [name, setName] = useState('');
@@ -16,6 +17,15 @@ function SignupModal({ isOpen, onClose }) {
   
   const [isLoading, setIsLoading] = useState(false);
   const modalRef = useRef(null);
+
+  
+  const closeLoginModal = () => setIsLoginOpen(false)
+    const openLoginModal = (e) => {
+    e.preventDefault()
+    setIsLoginOpen(true)
+    setIsMobileMenuOpen(false)
+  }
+ 
 
   // Handle click outside to close
   useEffect(() => {
@@ -276,6 +286,8 @@ function SignupModal({ isOpen, onClose }) {
             )}
           </button>
         </form>
+
+        
         
         <div className="signup-modal-footer">
           <p>Already have an account? <a href="/login" className="login-link">Sign in</a></p>
