@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/159197931/280760431-7b79d2b9-e1f1-419b-a0d4-c48f2269c107.png" alt="Blue Platform Logo" width="500"/>
 
   # Blue Platform
 
@@ -46,7 +45,6 @@ Our platform is built using a modern, scalable, and robust technology stack to e
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Frontend**       | <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white">                         |
 | **Backend**        | <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"> <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white">                               |
-| **Database**       | <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white">                                                                                                                                           |
 | **Authentication** | <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white">                                                                                                                                   |
 
 ## 🌱 Project Status
